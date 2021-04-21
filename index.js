@@ -5,7 +5,16 @@ for ( var i = 0; i<numberOfDrums; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function() {
         let buttonInnerHTML = this.innerHTML;
 
-        switch (buttonInnerHTML) {
+        makeSound(buttonInnerHTML);
+    });
+}
+
+document.addEventListener("keydown", function(e) {
+    makeSound(e.key);
+})
+
+function makeSound(key) {
+ switch (key) {
             case "w":
                 let crash = new Audio("sounds/crash.mp3")
                 crash.play()
@@ -43,5 +52,4 @@ for ( var i = 0; i<numberOfDrums; i++) {
 
             default: console.log(buttonInnerHTML);
         }
-    });
 }
